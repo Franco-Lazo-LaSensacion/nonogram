@@ -89,3 +89,21 @@ def mapear_coordenadas(grilla: list, posicion_mouse: any) -> tuple|None:
                 return (i, j)
             
     return None
+
+def accionar_banderas(banderas: list, accion: str):
+    '''
+    Acciono el quit cerrando los bucles del main.
+    '''
+
+    if accion == "quit":
+        banderas["programa_activo"] = False
+        banderas["jugando"] = False
+        banderas["en_menu"] = False
+        banderas["en_registro"] = False
+    elif accion == "cerrar menu":
+        banderas["en_menu"] = False
+    elif accion == "registro":
+        banderas["en_registro"] = False
+
+    return banderas
+

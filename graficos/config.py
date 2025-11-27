@@ -1,3 +1,5 @@
+import pygame
+
 ANCHO = 700
 ALTO = 600
 
@@ -13,3 +15,6 @@ BLANCO_CREMA = (254, 255, 237)
 ROJO = (255, 0, 0)
 
 COLOR_PISTAS = (255, 165, 0)
+
+tam_celda = 27
+TIEMPO_DELAY = 3000

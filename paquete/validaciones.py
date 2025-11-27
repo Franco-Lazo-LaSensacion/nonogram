@@ -1,9 +1,11 @@
-def verificar_estado_celda(grilla: list, posicion_mouse: tuple) -> bool:
+def verificar_estado_celda(grilla: list, posicion_mouse: tuple, click_mouse: any, funciones: any) -> bool:
     '''
     Trabaja independientemente las coordenadas, verifica si esta pintada o no.
 
     Arg: grilla -> principal, la interactiva
             posicion_mouse -> si hay colision guardo el estado actual de la casilla
+            click_mouse -> para que segun el click haga algo
+            funcion -> usar la que fuese dentro segun el estado
 
     Return: True -> si se puede pintar
             False -> si ya estaba pintada, para despintar
@@ -19,12 +21,13 @@ def verificar_estado_celda(grilla: list, posicion_mouse: tuple) -> bool:
                 
 
     if estado_actual == 1 or estado_actual == 3:
-        se_pinta = False
+        funciones[1](grilla, posicion_mouse)
     else:
-        se_pinta = True
-    
-    
-
+        if click_mouse == 1:
+            funciones[0](grilla, posicion_mouse)
+        else:
+            funciones[2](grilla, posicion_mouse)
+            
     return se_pinta
 
 def verificar_acierto(whitelist: list, coordenadas: tuple) -> bool:

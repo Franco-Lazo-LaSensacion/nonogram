@@ -1,5 +1,8 @@
 import pygame
 from graficos import config
+from .texto import *
+from graficos import config
+from . import grafica
 
 def crear_grilla(matriz: list, ventana: any, celda: int = 25, spacing: int = 27)-> dict:
 
@@ -179,5 +182,20 @@ def registrar_usuario(usuario: any, ruta: any):
     with open(ruta, "a", newline="", encoding="utf-8") as archivo:
         archivo.write(usuario + "\n")
 
+def accionar_win_o_perdida(ventana: any, sonido: any, texto: str, color: tuple):
+    '''
+    Acciona configuraciones de win.
 
+    Arg: sonido -> recibe el sonido
+        ventana -> pantalla surface
+        texto -> texto dependiendo si gana o pierde
+        color -> para el texto en tupla RGB
+    '''
 
+    fuente = pygame.font.SysFont("Consolas", 20, bold = True, italic = False)
+
+    sonido.set_volume(0.2)
+    sonido.play()
+    dibujar_texto(texto, fuente, color, 260, 500, ventana)
+    pygame.display.update()
+    pygame.time.delay(5000)

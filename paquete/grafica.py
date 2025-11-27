@@ -172,6 +172,18 @@ def mostrar_todas_columnas(ventana: any,
         mostrar_pistas_columnas(ventana, columna_pistas, x_base, y_base, tam_celda)
         x_base += tam_celda #salto de fila simetrico por tam_celda.
 
+def crear_botones_menu(funcion: any):
+    '''
+    Creo los botones del menu al mismo tiempo.
+
+    Arg: funcion -> crear boton
+    '''
+    return [
+        funcion(190, 200, 150, 100, "graficos/imagenes/start_btn.png"),
+        funcion(360, 200, 150, 100, "graficos/imagenes/exit_btn.png"),
+        funcion(10, 500, 75, 75, "graficos/imagenes/ranking_btn.png")
+    ]
+
 def iniciar_vidas(cantidad: int):
     '''
     Inicializa el sistema vidas (variable).
